@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: api-connect-api-connected-cluster
-  description: API Connect APIConnectedCluster
+  name: api-connect-event-endpoint-manager
+  description: API Connect Event Endpoint Manager
   namespace: cpi
   tags:
     - crd
