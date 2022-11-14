@@ -5,7 +5,7 @@ metadata:
   description: OperationsDasboard operations dasboard
   namespace: cpi
   tags:
-    - operations dashboard
+    - operations-dashboard
     - cloud-pak-for-integration
 spec:
   versionConstraint: ">=2022.2.1|<2022.4.1"
