@@ -1,0 +1,18 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: cpi-catalog-info
+spec:
+  targets:
+    - ./systems/cpi-apiconnect/apiconnect-event-endpoint-manager/Component.yaml
+    - ./systems/cpi-apiconnect/apiconnect-operator/Component.yaml
+    - ./systems/cpi-apiconnect/apiconnect-api-connected-cluster/Component.yaml
+    - ./systems/cpi-cloud-pak-foundational-services/cpi-cloud-pak-foundational-services-operator/Component.yaml
+    - ./systems/cpi-operations-dashboard/operations-dashboard-operations-dashboard/Component.yaml
+    - ./systems/cpi-operations-dashboard/operations-dashboard-operator/Component.yaml
+    - ./systems/cpi-appconnect/appconnect-dashboard/Component.yaml
+    - ./systems/cpi-appconnect/appconnect-designer-authoring/Component.yaml
+    - ./systems/cpi-appconnect/appconnect-operator/Component.yaml
+    - ./systems/cpi-mq/mq-queue-manager/Component.yaml
+    - ./systems/cpi-mq/mq-operator/Component.yaml
