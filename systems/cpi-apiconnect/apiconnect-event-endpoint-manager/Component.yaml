@@ -15,3 +15,4 @@ spec:
   owner: group:integration-team
   dependsOn:
     - component:cpi/api-connect-operator@3.0.0?scope=required&default_scope=required&vers=">=3.0.0|<3.1.0"
+  subcomponentOf: apiconnect

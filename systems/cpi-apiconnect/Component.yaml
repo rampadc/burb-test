@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: api-connect
+  description: API Connect
+  namespace: cpi
+  tags:
+    - apiconnect
+    - cloud-pak-for-integration
+spec:
+  type: application
+  lifecycle: production
+  owner: group:integration-team
+  subcomponentOf: component:cpi/cloud-pak-for-integration-2022.2

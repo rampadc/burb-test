@@ -14,3 +14,4 @@ spec:
   owner: group:integration-team
   dependsOn:
     - component:cpi/mq-operator@2.0.0?scope=required&default_scope=required&vers=">=2.0.0|<2.1.0"
+  subcomponentOf: component:cpi/mq

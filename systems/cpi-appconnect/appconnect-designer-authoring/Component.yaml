@@ -14,3 +14,4 @@ spec:
   owner: group:integration-team
   dependsOn:  
     - component:cpi/app-connect-operator@5.0.0?scope=required&default_scope=required&vers=">=5.0.0|<5.1.0"
+  subcomponentOf: component:cpi/app-connect

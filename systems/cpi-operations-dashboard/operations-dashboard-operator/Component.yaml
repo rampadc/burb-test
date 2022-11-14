@@ -16,3 +16,4 @@ spec:
   dependsOn:
     - component:cpi/cpi-cloud-pak-foundational-services-operator@3.19.0?scope=optional&default_scope=required&vers=">=3.19.0|<3.20.0"
     - component:redhat/openshift-container-platform@4.10?scope=required&default_scope=&vers=">=4.10.0|<4.11.0"
+  subcomponentOf: component:cpi/operations-dashboard

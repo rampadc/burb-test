@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mq
+  description: IBM MQ
+  namespace: cpi
+  tags:
+    - mq
+    - cloud-pak-for-integration
+spec:
+  type: application
+  lifecycle: production
+  owner: group:integration-team
+  subcomponentOf: component:cpi/cloud-pak-for-integration-2022.2
