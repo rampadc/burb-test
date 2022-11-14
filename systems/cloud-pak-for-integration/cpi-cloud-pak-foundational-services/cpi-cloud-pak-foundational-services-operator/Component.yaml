@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cpi-cloud-pak-foundational-services-operator
+  description: Cloud Pak Foundational Services operator
+  namespace: cpi
+  tags:
+    - operator
+    - foundational services
+    - cloud pak for integration
+    - cpfs
+spec:
+  versionConstraint: ">=3.19.0|<3.20.0"
+  type: application
+  lifecycle: production
+  owner: group:integration-team
+  dependsOn:
+    - component:redhat/openshift-container-platform@4.10?scope=required&default_scope=&vers=">=4.10.0|<4.11.0"

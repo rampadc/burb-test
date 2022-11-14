@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: operations-dashboard-operator
+  description: OperationsDasboard operator
+  namespace: cpi
+  tags:
+    - operator
+    - operations dashboard
+    - cloud pak for integration
+spec:
+  versionConstraint: ">=2.6.0|<2.7.0"
+  type: application
+  lifecycle: production
+  owner: group:integration-team
+  dependsOn:
+    - component:cpi/cpi-cloud-pak-foundational-services-operator@3.19.0?scope=optional&default_scope=required&vers=">=3.19.0|<3.20.0"
+    - component:redhat/openshift-container-platform@4.10?scope=required&default_scope=&vers=">=4.10.0|<4.11.0"

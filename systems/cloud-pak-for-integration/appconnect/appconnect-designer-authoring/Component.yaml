@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: app-connect-designer-authoring
+  description: App Connect designer authoring
+  namespace: cpi
+  tags:
+    - appconnect
+    - cloud pak for integration
+spec:
+  versionConstraint: ">=12.0.5.0-r1-lts"
+  type: application
+  lifecycle: production
+  owner: group:integration-team
+  dependsOn:  
+    - component:cpi/app-connect-operator@5.0.0?scope=required&default_scope=required&vers=">=5.0.0|<5.1.0"

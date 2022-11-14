@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: operations-dashboard-operations-dashboard
+  description: OperationsDasboard operations dasboard
+  namespace: cpi
+  tags:
+    - operations dashboard
+    - cloud pak for integration
+spec:
+  versionConstraint: ">=2022.2.1|<2022.4.1"
+  type: application
+  lifecycle: production
+  owner: group:integration-team
+  dependsOn:
+    - component:cpi/operations-dashboard-operator@2.6.0?scope=required&default_scope=required&vers=">=2.6.0|<2.7.0"

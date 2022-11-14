@@ -1,0 +1,12 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: integration-team
+  description: Group description
+spec:
+  type: team
+  profile:
+    displayName: Integration team
+    email: optional-email@example.com
+    picture: https://avatars.dicebear.com/api/initials/integration-team.svg

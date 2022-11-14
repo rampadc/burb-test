@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: api-connect-api-connected-cluster
+  description: API Connect APIConnectedCluster
+  namespace: cpi
+  tags:
+    - crd
+    - apiconnect
+    - cloud pak for integration
+spec:
+  versionConstraint: ">=10.0.5.0|<10.0.6.0"
+  type: application
+  lifecycle: production
+  owner: group:integration-team
+  dependsOn:
+    - component:cpi/api-connect-operator@3.0.0?scope=required&default_scope=required&vers=">=3.0.0|<3.1.0"
