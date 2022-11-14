@@ -6,7 +6,7 @@ metadata:
   namespace: cpi
   tags:
     - operations dashboard
-    - cloud pak for integration
+    - cloud-pak-for-integration
 spec:
   versionConstraint: ">=2022.2.1|<2022.4.1"
   type: application

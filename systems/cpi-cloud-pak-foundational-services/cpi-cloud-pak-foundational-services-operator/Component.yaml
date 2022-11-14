@@ -6,8 +6,8 @@ metadata:
   namespace: cpi
   tags:
     - operator
-    - foundational services
-    - cloud pak for integration
+    - foundational-services
+    - cloud-pak-for-integration
     - cpfs
 spec:
   versionConstraint: ">=3.19.0|<3.20.0"

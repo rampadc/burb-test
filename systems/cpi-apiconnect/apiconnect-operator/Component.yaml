@@ -7,7 +7,7 @@ metadata:
   tags:
     - operator
     - apiconnect
-    - cloud pak for integration
+    - cloud-pak-for-integration
 spec:
   versionConstraint: ">=3.0.0|<3.1.0"
   type: application
