@@ -4,6 +4,7 @@ kind: Component
 metadata:
   name: cloud-pak-for-integration-2022.2
   description: Cloud Pak for Integration 2022.2
+  namespace: cloud-pak
 spec:
   versionConstraint: ">=2022.2.0|<2022.3"
   type: application

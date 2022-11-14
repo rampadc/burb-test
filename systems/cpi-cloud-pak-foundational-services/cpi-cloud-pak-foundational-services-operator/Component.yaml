@@ -16,4 +16,4 @@ spec:
   owner: group:integration-team
   dependsOn:
     - component:redhat/openshift-container-platform@4.10?scope=required&default_scope=&vers=">=4.10.0|<4.11.0"
-  subcomponentOf: component:cpi/cloud-pak-for-integration-2022.2
+  subcomponentOf: component:cloud-pak/cloud-pak-for-integration-2022.2

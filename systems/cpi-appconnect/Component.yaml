@@ -11,4 +11,4 @@ spec:
   type: application
   lifecycle: production
   owner: group:integration-team
-  subcomponentOf: component:cpi/cloud-pak-for-integration-2022.2
+  subcomponentOf: component:cloud-pak/cloud-pak-for-integration-2022.2
