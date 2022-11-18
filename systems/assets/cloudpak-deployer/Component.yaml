@@ -1,0 +1,24 @@
+---
+apiVersion: techzone.ibm.com/v1alpha1
+kind: Component
+metadata:
+  name: cloudpak-deployer
+  namespace: community
+  description: Cloud Pak Deployer metadata
+  links:
+    - url: https://ibm.github.io/cloud-pak-deployer/
+      title: Cloud Pak Deployer documentation
+      icon: docs
+    - url: https://github.com/IBM/cloud-pak-deployer
+      title: Cloud Pak Deployer GitHub repository
+      icon: github
+spec:
+  type: application
+  lifecycle: experimental
+  owner: group:ibmers-community
+  implements:
+    - component:cpi/api-connect
+    - component:cpi/app-connect
+    - component:cpi/cpi-cloud-pak-foundational-services-operator
+    - component:cpi/operations-dashboard
+    - component:cpi/mq

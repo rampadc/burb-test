@@ -1,5 +1,5 @@
 ---
-apiVersion: backstage.io/v1alpha1
+apiVersion: techzone.ibm.com/v1alpha1
 kind: Component
 metadata:
   name: cloud-pak-for-integration-2022.2
