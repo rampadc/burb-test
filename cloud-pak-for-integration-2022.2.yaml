@@ -10,3 +10,15 @@ spec:
   type: application
   lifecycle: production
   owner: group:integration-team
+  dependsOn:
+    - component:cpi/api-connect-api-connected-cluster@10.0.5.0?scope=optional&default_scope=optional&vers=">=10.0.5.0|<10.0.6.0"
+    - component:cpi/api-connect-event-endpoint-manager@10.0.5.0?scope=optional&default_scope=optional&vers=">=10.0.5.0|<10.0.6.0"
+    - component:cpi/api-connect-operator@3.0.0?scope=optional&default_scope=optional&vers=">=3.0.0|<3.1.0"
+    - component:cpi/app-connect-dashboard@12.0.5.0-r1-lts?scope=optional&default_scope=optional&vers=">=12.0.5.0-r1-lts"
+    - component:cpi/app-connect-designer-authoring@12.0.5.0-r1-lts?scope=optional&default_scope=optional&vers=">=12.0.5.0-r1-lts"
+    - component:cpi/app-connect-operator@5.0.0?scope=optional&default_scope=optional&vers=">=5.0.0|<5.1.0"
+    - component:cpi/cpi-cloud-pak-foundational-services-operator@3.19.0?scope=optional&default_scope=optional&vers=">=3.19.0|<3.20.0"
+    - component:cpi/mq-operator@2.0.0?scope=optional&default_scope=optional&vers=">=2.0.0|<2.1.0"
+    - component:cpi/mq-queue-manager@9.3.0.0?scope=optional&default_scope=optional&vers=">=9.3.0.0|<9.3.1.0"
+    - component:cpi/operations-dashboard-operator@2.6.0?scope=optional&default_scope=optional&vers=">=2.6.0|<2.7.0"
+    - component:cpi/operations-dashboard-operator@2022.2.1?scope=optional&default_scope=optional&vers=">=2022.2.1|<2022.4.1"
