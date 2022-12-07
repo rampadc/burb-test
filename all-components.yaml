@@ -7,6 +7,7 @@ spec:
   targets:
     - ./cloud-pak-for-integration-2022.2.yaml
     - ./systems/assets/cloudpak-deployer/Component.yaml
+    - ./systems/assets/mq-quickstart-service/Component.yaml
     - ./systems/cpi-apiconnect/Component.yaml
     - ./systems/cpi-apiconnect/apiconnect-event-endpoint-manager/Component.yaml
     - ./systems/cpi-apiconnect/apiconnect-operator/Component.yaml
