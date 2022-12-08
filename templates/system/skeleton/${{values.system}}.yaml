@@ -5,8 +5,6 @@ metadata:
   description: Backstage
   tags:
     - ${{values.system}}
-    - ${{values.domain}}
 spec:
   type: system
   owner: group:${{values.owner}}
-  domain: ${{values.domain}}

@@ -2,7 +2,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: all-templates
+  name: all-groups
 spec:
   targets:
-    - ./templates/system/template.yaml
+    - ./orgs/groups.yaml

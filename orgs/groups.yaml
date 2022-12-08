@@ -1,12 +1,24 @@
 ---
-apiVersion: techzone.ibm.com/v1alpha1
+apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: integration-team
-  description: Group description
+  namespace: cloud-pak
 spec:
   type: team
   profile:
     displayName: Integration team
     email: optional-email@example.com
-    picture: https://avatars.dicebear.com/api/initials/integration-team.svg
+  children: [ibmer]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: ibmers-community
+  namespace: community
+spec:
+  type: team
+  profile:
+    displayName: IBMers
+    email: optional-email@example.com
+  children: [ibmer]
