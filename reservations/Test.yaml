@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: Test
+  description: Backstage
+  tags:
+    - Test
+spec:
+  type: system
+  owner: group:community/ibmers-community
