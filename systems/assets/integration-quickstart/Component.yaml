@@ -1,0 +1,16 @@
+---
+apiVersion: techzone.ibm.com/v1alpha1
+kind: Component
+metadata:
+  name: integration-quickstart
+  namespace: community
+  description: A set of integration quickstart services
+spec:
+  type: application
+  lifecycle: experimental
+  owner: group:ibmers-community
+  implements:
+    - component:cpi/mq-queue-manager@9.3.0.0?scope=optional&default_scope=required&vers=">=9.3.0.0|<9.3.1.0"
+    - component:cpi/app-connect-designer-authoring@12.0.5.0-r1-lts?scope=optional&default_scope=required&vers=">=12.0.5.0-r1-lts"
+    - component:cpi/app-connect-dashboard@12.0.5.0-r1-lts?scope=optional&default_scope=required&vers=">=12.0.5.0-r1-lts"
+    - component:cpi/operations-dashboard-operations-dashboard@2022.2.1?scope=optional&default_scope=required&vers=">=2022.2.1|<2022.4.1"
