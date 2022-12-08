@@ -58,6 +58,7 @@ spec:
       name: "Open PR on Backstage Catalog"
       action: publish:github:pull-request
       if: ${{ parameters.dryRun == false }}
+      draft: true
       input:
         repoUrl: github.com?repo=burb-test&owner=rampadc
         branchName: create-${{ parameters.system }}
@@ -65,7 +66,6 @@ spec:
         description: |
           # New project: ${{ parameters.system }}
           ${{ parameters.description if parameters.description }}
-        sourcePath: system
         targetPath: reservations
 
     # - id: register
