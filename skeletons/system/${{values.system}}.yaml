@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: ${{values.system}}
+  description: Backstage
+  tags:
+    - ${{values.system}}
+    - ${{values.domain}}
+spec:
+  type: system
+  owner: group:${{values.owner}}
+  domain: ${{values.domain}}
