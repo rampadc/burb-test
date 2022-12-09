@@ -6,3 +6,4 @@ metadata:
 spec:
   targets:
     - ./templates/system/template.yaml
+    - ./templates/deploy-component/template.yaml
