@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: deploy-component-template
-  title: Deploy Cloud Pak catridges
-  description: Deploy Cloud Pak catridges
+  name: deploy-mq-9.3
+  title: MQ 9.3
+  description: Deploy MQ into a selected region/cluster
   tags:
     - component
 spec:
@@ -15,7 +15,7 @@ spec:
       required:
         - systemName
         - owner
-        - components
+        - highAvailability
       properties:
         system:
           type: string
@@ -31,29 +31,14 @@ spec:
             allowedKinds:
               - Group
               - User
-        components:
-          type: array
-          title: List of components to be deployed
-          items:
-            type: object
-            required:
-            - component
-            dependencies:
-              version:
-              - component
-            properties:
-              component:
-                type: string
-                description: Select a component to be deployed
-                ui:field: EntityPicker
-                ui:options:
-                  allowedKinds:
-                  - Component
-                  defaultNamespace: cpi
-                  orderable: false
-              version:
-                type: string
-                description: Enter a component's version to be deployed
+        highAvailability:
+          type: string
+          title: Configure MQ's high high availability options
+          oneOf:
+          - const: nativeHA
+            title: Native HA
+          - const: singleInstance
+            title: Single Instance
         dryRun:
           title: Only perform a dry run, don't publish anything
           type: boolean
