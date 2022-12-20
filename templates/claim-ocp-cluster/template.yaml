@@ -41,6 +41,8 @@ spec:
             title: AWS
           - const: azure
             title: Azure
+          default: azure
+          ui:readonly: true
         size:
           title: T-shirt size
           type: string
@@ -49,12 +51,16 @@ spec:
           title: I will be installing services onto this cluster myself
           type: boolean
           default: true
+          ui:disabled: true
+          ui:readonly: true
         dryRun:
           title: Only perform a dry run, don't publish anything
           type: boolean
           default: false
 
   steps:
+    # POST to a Tekton URL to claim a cluster given some parameters
+
     # - id: fetch-template
     #   name: Fetch System Templates
     #   action: fetch:template
