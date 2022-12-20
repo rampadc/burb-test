@@ -48,7 +48,7 @@ spec:
         selfManaged:
           title: I will be installing services onto this cluster myself
           type: boolean
-          default: false
+          default: true
         dryRun:
           title: Only perform a dry run, don't publish anything
           type: boolean
