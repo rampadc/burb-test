@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: deploy-mq-9.3
-  title: MQ 9.3
-  description: Deploy MQ into a selected region/cluster
+  name: claim-ocp-cluster
+  title: Claim an OpenShift cluster
+  description: Using RHACM's cluster pool, claim an OpenShift cluster in AWS or Azure
   tags:
     - component
 spec:
@@ -11,14 +11,17 @@ spec:
   type: Component
 
   parameters:
-    - title: Deploy a system of components
+    - title: Claim an OpenShift cluster
       required:
         - systemName
         - owner
+        - cloudProvider
+        - size
+        - selfManaged
       properties:
         system:
           type: string
-          description: Name of system to be created
+          description: Name of cluster to be claimed
           ui:field: EntityNamePicker
           ui:autofocus: true
         owner:
@@ -30,7 +33,22 @@ spec:
             allowedKinds:
               - Group
               - User
-
+        cloudProvider:
+          title: Cloud provider
+          type: string
+          oneOf:
+          - const: aws
+            title: AWS
+          - const: azure
+            title: Azure
+        size:
+          title: T-shirt size
+          type: string
+          enum: ["small", "medium", "large"]
+        selfManaged:
+          title: I will be installing services onto this cluster myself
+          type: boolean
+          default: false
         dryRun:
           title: Only perform a dry run, don't publish anything
           type: boolean

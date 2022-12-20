@@ -8,3 +8,4 @@ spec:
     - ./templates/system/template.yaml
     - ./templates/deploy-component/template.yaml
     - ./templates/mq-9.3/template.yaml
+    - ./templates/claim-ocp-cluster/template.yaml
