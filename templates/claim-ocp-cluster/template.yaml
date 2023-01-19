@@ -2,8 +2,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: claim-ocp-cluster
-  title: Claim an OpenShift cluster
-  description: Using RHACM's cluster pool, claim an OpenShift cluster in AWS or Azure
+  title: Claim an OpenShift cluster on Azure
+  description: Using RHACM's cluster pool, claim an OpenShift cluster in Azure
   tags:
     - component
 spec:
@@ -11,100 +11,29 @@ spec:
   type: Component
 
   parameters:
-    - title: Claim an OpenShift cluster
+    - title: Claim an OpenShift cluster on Azure
       required:
-        - systemName
-        - owner
-        - cloudProvider
-        - size
-        - selfManaged
+        - clusterClaimName
+        - clusterSize
       properties:
-        system:
+        clusterClaimName:
           type: string
-          description: Name of cluster to be claimed
+          description: Name of cluster claim to be created
           ui:field: EntityNamePicker
           ui:autofocus: true
-        owner:
-          title: Owner
-          type: string
-          description: Owner of the component
-          ui:field: OwnerPicker
-          ui:options:
-            allowedKinds:
-              - Group
-              - User
-        cloudProvider:
-          title: Cloud provider
-          type: string
-          oneOf:
-          - const: aws
-            title: AWS
-          - const: azure
-            title: Azure
-          default: azure
-          ui:readonly: true
-        size:
+        clusterSize:
           title: T-shirt size
           type: string
           enum: ["small", "medium", "large"]
-        selfManaged:
-          title: I will be installing services onto this cluster myself
-          type: boolean
-          default: true
-          ui:disabled: true
-          ui:readonly: true
-        dryRun:
-          title: Only perform a dry run, don't publish anything
-          type: boolean
-          default: false
-
   steps:
     # POST to a Tekton URL to claim a cluster given some parameters
-
-    # - id: fetch-template
-    #   name: Fetch System Templates
-    #   action: fetch:template
-    #   if: ${{ parameters.dryRun == false }}
-    #   input:
-    #     url: ./skeleton
-    #     values:
-    #       system: ${{ parameters.system }}
-    #       description: ${{ parameters.description }}
-    #       owner: ${{ parameters.owner }}
-
-    # - id: open-pr
-    #   name: "Open PR on Backstage Catalog"
-    #   action: publish:github:pull-request
-    #   if: ${{ parameters.dryRun == false }}
-    #   draft: true
-    #   input:
-    #     repoUrl: github.com?repo=burb-test&owner=rampadc
-    #     branchName: create-${{ parameters.system }}
-    #     title: ':robot: [backstage-bot] Create ${{ parameters.system }}'
-    #     description: |
-    #       # New project: ${{ parameters.system }}
-    #       ${{ parameters.description if parameters.description }}
-    #     targetPath: reservations
-
-    # - id: register
-    #   name: Register Application in Catalog
-    #   action: catalog:register
-    #   if: ${{ parameters.dryRun !== true }}
-    #   input:
-    #     repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-    #     catalogInfoPath: "/catalog-info.yaml"
-
-
-    - name: Results
-      if: ${{ parameters.dryRun }}
-      action: debug:log
+    - id: claim-cluster
+      name: Claim a cluster
+      action: itz:actions:claim-cluster
       input:
-        listWorkspace: true
-
-  # output:
-  #   links:
-  #     - title: Go to GitOps Pull Request
-  #       url: ${{ steps.open-pr.output.remoteUrl }}
-  #     - title: Open in catalog
-  #       icon: catalog
-  #       entityRef: ${{ steps.register.output.entityRef }}
+        clusterClaimName: ${{ parameters.clusterClaimName }}
+        clusterSize: ${{ parameters.clusterSize }}
+  output:
+    links:
+      - title: Pipeline run results
+        url: https://console-openshift-console.atk-hub-cluster-5a721ea7358c42f2f5e75fbdac0e4b33-0000.us-east.containers.appdomain.cloud/search/ns/cluster-claimer-service?kind=tekton.dev~v1beta1~PipelineRun&q=triggers.tekton.dev%2Ftriggers-eventid%3D${{ steps['claim-cluster'].output.eventID }}
