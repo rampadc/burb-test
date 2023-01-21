@@ -6,3 +6,4 @@ metadata:
 spec:
   targets:
     - ./templates/claim-ocp-cluster/template.yaml
+    - ./templates/deploy/template.yaml

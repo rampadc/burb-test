@@ -1,0 +1,35 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: deploy-datastage
+  title: Deploy Datastage service
+  description: Deploy an instance of Datastage Enterprise on a shared Cloud Pak for Data 4.6 environment
+  tags:
+    - component
+spec:
+  owner: group:ibmers-community
+  type: Component
+
+  parameters:
+    - title: Deploy an instance of Datastage Enterprise on a shared Cloud Pak for Data 4.6 environment
+      required:
+        - instanceName
+      properties:
+        instanceName:
+          title: Instance name
+          type: string
+          description: Name of instance claim to be created
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+  steps:
+    # POST to a Tekton URL to claim a cluster given some parameters
+    - id: post-to-tekton-event-listener
+      name: Deploy datastage
+      action: itz:actions:tekton-eventlistener
+      input:
+        data:
+          instance_name: ${{ parameters.instanceName }}
+  output:
+    links:
+      - title: Pipeline run results
+        url: https://console-openshift-console.atk-hub-cluster-5a721ea7358c42f2f5e75fbdac0e4b33-0000.us-east.containers.appdomain.cloud/search/ns/${{ steps['post-to-tekton-event-listener'].output.namespace }}?kind=tekton.dev~v1beta1~PipelineRun&q=triggers.tekton.dev%2Ftriggers-eventid%3D${{ steps['post-to-tekton-event-listener'].output.eventID }}
