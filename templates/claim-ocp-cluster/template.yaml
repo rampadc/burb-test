@@ -31,7 +31,8 @@ spec:
       name: Claim a cluster
       action: itz:actions:tekton-eventlistener
       input:
-        data:
+        eventListenerUrl: https://cluster-claimer-event-listener-route-cluster-claimer-service.atk-hub-cluster-5a721ea7358c42f2f5e75fbdac0e4b33-0000.us-east.containers.appdomain.cloud/
+        eventListenerData:
           cluster_claim_name: ${{ parameters.clusterClaimName }}
           cluster_size: ${{ parameters.clusterSize }}
           cloud_provider: 'azure'
