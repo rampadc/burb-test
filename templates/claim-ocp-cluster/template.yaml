@@ -36,7 +36,6 @@ spec:
           cluster_claim_name: ${{ parameters.clusterClaimName }}
           cluster_size: ${{ parameters.clusterSize }}
           cloud_provider: 'azure'
-          will_techzone_manage_services: 'false'
   output:
     links:
       - title: Pipeline run results
